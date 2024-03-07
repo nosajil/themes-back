@@ -2,7 +2,8 @@ import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
-import themeRouter from './routes/themeRouter.js';
+import UserRouter from './routes/userRouter.js';
+import PostRouter from './routes/postRouter.js';
 import cors from 'cors' 
 
 
@@ -25,6 +26,6 @@ app.get('/', (req, res) => {
 });
 
 
-app.use('/', themeRouter);
+app.use('/', UserRouter, PostRouter);
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));
